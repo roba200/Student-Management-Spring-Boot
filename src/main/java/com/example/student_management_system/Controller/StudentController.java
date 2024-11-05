@@ -37,7 +37,7 @@ public class StudentController {
     }
     
     @GetMapping
-    public List<Student> getAll(@RequestParam String param) {
+    public List<Student> getAll() {
         return service.getAll();
     }
 
@@ -46,7 +46,7 @@ public class StudentController {
         return new ResponseEntity<Student>(service.getStudentById(id),HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("{id}")
     public ResponseEntity<String> deleteStudent(@PathVariable("id") Integer id){
         service.deleteStudent(id);
         return new ResponseEntity<String>("Student Deleted Successfully",HttpStatus.OK);

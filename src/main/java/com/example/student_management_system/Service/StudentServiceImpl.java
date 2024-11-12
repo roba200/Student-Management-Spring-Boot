@@ -58,4 +58,18 @@ public class StudentServiceImpl implements StudentService {
         return eStudent;
     }
 
+    @Override
+    public List<Student> getStudentsByYearOfEnrollment(Integer yearOfEnrollment) {
+        return repository.findByYearOfEnrollment(yearOfEnrollment);
+    }
+
+    @Override
+    public String getDepartmentByStudentId(Integer id) {
+        return repository.findDepartmentByStudentId(id);
+    }
+
+    @Override
+    public void deleteStudentsByYearOfEnrollment(Integer yearOfEnrollment) {
+        repository.deleteByYearOfEnrollment(yearOfEnrollment);
+    }
 }
